@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<div class="p-3 container">
+    <h1 class="text-center ms-5 ps-5">Edit Party</h1>
+       <div class="mt-4 container w-75 rounded" style="border: 1px solid;">
+            <form class="form p-5 rounded">
+                <div class="mt-4">
+                    <input type="text" placeholder="Id" class="form-control" name="id" [(ngModel)]="party.id" required pattern="[0-9]*" #partyid="ngModel" disabled>
+                </div>
+                <span class="text-danger" *ngIf="partyid.invalid && partyid.touched">Invalid id</span>
+                <div class="mt-4">
+                    <input type="text" placeholder="name" class="form-control" name="username" [(ngModel)]="party.name" required pattern="[a-zA-Z]{3,}$" #partyname="ngModel">
+                </div>
+                <span class="text-danger" *ngIf="partyname.invalid && partyname.touched">Invalid name</span>
+
+                <div class="mt-4">
+                    <input type="text" placeholder="company name" class="form-control" name="companyname" [(ngModel)]="party.company_name" required pattern="[a-zA-Z]{3,}$" #company="ngModel">
+                </div>
+                <span class="text-danger" *ngIf="company.invalid && company.touched">Invalid company name</span>
+
+                <div class="mt-4">
+                    <input type="text" placeholder="mobile_no" class="form-control" name="mobnumber" [(ngModel)]="party.mobile_no" required pattern="[0-9]*" #mobileno="ngModel">
+                </div>
+                <span class="text-danger" *ngIf="mobileno.invalid && mobileno.touched">Invalid mobile no</span>
+
+                <div class="mt-4">
+                    <input type="text" placeholder="email" class="form-control" name="email" [(ngModel)]="party.email" required email #partyemail="ngModel">
+                </div>
+                <span class="text-danger" *ngIf="partyemail.invalid && partyemail.touched">Invalid email</span>
+
+                <div class="mt-4">
+                    <input type="text" placeholder="gstin" class="form-control" name="gstin" [(ngModel)]="party.gstin" required pattern="[0-9]*" #partygstin="ngModel">
+                </div>
+                <span class="text-danger" *ngIf="partygstin.invalid && partygstin.touched">Invalid gstin</span>
+
+                <div class="mt-4">
+                    <input type="text" placeholder="credit_limit" class="form-control" name="credit limit" [(ngModel)]="party.credit_limit" required pattern="[0-9]*" #partycreditlimit="ngModel">
+                </div>
+                <span class="text-danger" *ngIf="partycreditlimit.invalid && partycreditlimit.touched">Invalid credit limit</span>
+
+                <div class="mt-4">
+                    <input type="text" placeholder="address" class="form-control" name="address" [(ngModel)]="party.address" required #partyaddress="ngModel">
+                </div>
+                <span class="text-danger" *ngIf="partyaddress.invalid && partyaddress.touched">Invalid address</span>
+
+                <div class="mt-4">
+                    <input type="text" placeholder="remark" class="form-control" name="remark" [(ngModel)]="party.remark" required  #partyremark="ngModel">
+                </div>
+                <span class="text-danger" *ngIf="partyremark.invalid && partyremark.touched">Invalid remark</span>
+
+                <div class="mt-4 d-flex">
+                    <button class="btn btn-outline-danger w-50" (click)="cancelbutton(party.id)">Cancel</button>
+                    <button class="btn btn-outline-success ms-4 w-50" type="submit" (click)="updateParty(party.id)">Update</button>
+                </div>
+
+            </form>
+       </div>
+   
+</div>

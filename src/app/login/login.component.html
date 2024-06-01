@@ -1,0 +1,12 @@
+<div class="d-flex align-items-center justify-content-center p-5">
+    <div class="form-container">
+        <p class="title">Welcome</p>
+        <form class="form" (ngSubmit)="login()">
+          <input type="text" class="input form-control" placeholder="username"  required [(ngModel)]="username" name="username" #user="ngModel">
+            <span class="text-danger" *ngIf="user.invalid && user.touched">Invalid username</span>
+
+          <input type="password" class="input form-control" placeholder="Password" required pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$" [(ngModel)]="password" name="password" #userpswd="ngModel">
+          <span class="text-danger" *ngIf="userpswd.invalid && userpswd.touched">Invalid Password</span>
+          <button type="submit" class="form-btn">Log in</button>
+        </form>
+</div>
